@@ -1,3 +1,4 @@
 .venv/
-db.sqlite3/
-2chatbbotdab.sql/
+db.sqlite3
+2chatbotdb.sql
+

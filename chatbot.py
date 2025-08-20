@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 app.config['DEBUG']
-app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://Mathew002:Sqlrithik@002@Mathew002.mysql.pythonanywhere-services.com/Mathew002$2chatbotdb'
 
 '''bot= ChatBot('ChatBot')
 
