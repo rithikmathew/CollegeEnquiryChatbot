@@ -9,6 +9,10 @@ from bs4 import BeautifulSoup
 import os
 from flask import Flask, render_template, request, jsonify
 import pymysql
+import time
+if not hasattr(time, "clock"):
+    time.clock = time.perf_counter  # perf_counter is a good replacement
+
 
 english_bot = ChatBot('Bot',
                       storage_adapter='chatterbot.storage.SQLStorageAdapter',
