@@ -4,6 +4,7 @@ import mysql.connector
 import smtplib
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 from requests import get
 from bs4 import BeautifulSoup
 import os
