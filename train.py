@@ -6,7 +6,7 @@ import os
 english_bot = ChatBot(
     'Bot',
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
-    database_uri='mysql+pymysql://Mathew002:Sqlrithik@002@Mathew002.mysql.pythonanywhere-services.com/Mathew002$2chatbotdb'
+    database_uri='mysql+pymysql://rithik007:Mathewsql@007@rithik007.mysql.pythonanywhere-services.com/rithik007$2chatbotdb'
 )
 
 # Use ListTrainer
