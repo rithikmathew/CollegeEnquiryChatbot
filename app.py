@@ -26,7 +26,7 @@ english_bot = ChatBot('Bot',
                       trainer='chatterbot.trainers.ListTrainer')
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://Mathew002:Sqlrithik@002@Mathew002.mysql.pythonanywhere-services.com/Mathew002$2chatbotdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://rithik007:Mathewsql@007@rithik007.mysql.pythonanywhere-services.com/rithik007$2chatbotdb'
 
 app.config['DEBUG']
 
@@ -130,7 +130,7 @@ def adminlogin():
     error = None
     if request.method == 'POST':
         if request.form['uname'] == 'admin' or request.form['password'] == 'admin':
-            conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+            conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
             cursor = conn.cursor()
             cur = conn.cursor()
             cur.execute("SELECT * FROM register")
@@ -154,7 +154,7 @@ def reg():
 
         uname = request.form['uname']
         password = request.form['psw']
-        conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+        conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
         cursor = conn.cursor()
         cursor.execute(
             "INSERT INTO register VALUES ('','" + rollno + "','" + n + "','" + email + "','" + p + "','" + department + "','" + section + "','" + uname + "','" + password + "')")
@@ -173,7 +173,7 @@ def userlogin():
         password = request.form['password']
         session['uname'] = request.form['uname']
 
-        conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+        conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
         cursor = conn.cursor()
         cursor.execute("SELECT * from register where uname='" + username + "' and psw='" + password + "'")
         data = cursor.fetchone()
@@ -183,7 +183,7 @@ def userlogin():
         else:
             print(data[0])
             session['uid'] = data[0]
-            conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+            conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
             # cursor = conn.cursor()
             cur = conn.cursor()
             cur.execute("SELECT * FROM register where uname='" + username + "' and psw='" + password + "'")
@@ -201,14 +201,14 @@ def newquery():
         query = request.form['query']
         date = request.form['date']
 
-        conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+        conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
         cursor = conn.cursor()
         cursor.execute(
             "INSERT INTO Querytb VALUES ('','" + uname + "','" + type + "','" + query + "','" + date + "','','waiting')")
         conn.commit()
         conn.close()
         # return 'file register successfully'
-        conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+        conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
         # cursor = conn.cursor()
         cur = conn.cursor()
         cur.execute("SELECT * FROM Querytb where UserName='" + uname + "' and status='waiting '")
@@ -220,13 +220,13 @@ def newquery():
 def UQueryandAns():
     uname = session['uname']
 
-    conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+    conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
     # cursor = conn.cursor()
     cur = conn.cursor()
     cur.execute("SELECT * FROM Querytb where UserName='" + uname + "' and status='waiting'")
     data = cur.fetchall()
 
-    conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+    conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
     # cursor = conn.cursor()
     cur = conn.cursor()
     cur.execute("SELECT * FROM Querytb where UserName='" + uname + "' and status='Answer'")
@@ -239,7 +239,7 @@ def UQueryandAns():
 def AdminQinfo():
     # uname = session['uname']
 
-    conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+    conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
     # cursor = conn.cursor()
     cur = conn.cursor()
     cur.execute("SELECT * FROM Querytb where  status='waiting'")
@@ -258,14 +258,14 @@ def answer():
         print(Answer)
         print(id)
 
-        conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+        conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
         cursor = conn.cursor()
         cursor.execute(
             "update Querytb set status='Answer',Answer='" + Answer + "' where id='" + str(id) + "' ")
         conn.commit()
         conn.close()
 
-        conn3 = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+        conn3 = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
         cur3 = conn3.cursor()
         cur3.execute("SELECT * FROM register where 	uname='" + str(uname) + "'")
         data3 = cur3.fetchone()
@@ -275,7 +275,7 @@ def answer():
             sendmsg(phnumber, "Your Query Answer updated!")
 
         # return 'file register successfully'
-        conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+        conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
         # cursor = conn.cursor()
         cur = conn.cursor()
         cur.execute("SELECT * FROM Querytb where UserName='" + uname + "' and status !='waiting '")
@@ -285,7 +285,7 @@ def answer():
 
 @app.route("/AdminAinfo")
 def AdminAinfo():
-    conn = pymysql.connect(host='Mathew002.mysql.pythonanywhere-services.com', user='Mathew002',password='Sqlrithik@002',database='Mathew002$2chatbotdb')
+    conn = pymysql.connect(host='rithik007.mysql.pythonanywhere-services.com', user='rithik007',password='Mathewsql@007',database='rithik007$2chatbotdb')
     # cursor = conn.cursor()
     cur = conn.cursor()
     cur.execute("SELECT * FROM Querytb where  status !='waiting'")
